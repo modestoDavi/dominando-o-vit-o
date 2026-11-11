@@ -1,0 +1,71 @@
+/* CONFIGURAÇÃO GERAL DA TELA */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #111;    /* Fundo preto padrão */
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+/* DIVISÃO DA TELA: Duas metades iguais */
+.container-pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide em 50% esquerda e 50% direita */
+  height: 100vh;
+  width: 100vw;
+}
+
+/* LADO ESQUERDO: Alinha o título e o rato horizontalmente */
+.lado-esquerdo {
+  display: flex;
+  align-items: center;        /* Centraliza verticalmente */
+  justify-content: center;    /* Centraliza o bloco na horizontal */
+  padding: 20px;
+  gap: 30px;                  /* Distância entre o texto e o rato */
+  background-color: #111;     /* Fundo escuro atrás do texto */
+}
+
+/* TEXTO H1 ARCO-ÍRIS */
+.texto-arco-iris {
+  font-size: 5rem;            /* Tamanho ideal para as colunas */
+  font-weight: 900;           /* Letra bem grossa para destacar o degradê */
+  line-height: 1.1;           /* Aproxima as linhas do texto */
+  margin: 0;
+  text-transform: uppercase;  
+  
+  /* Efeito Arco-íris Animado */
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: moverArcoIris 5s linear infinite;
+}
+
+/* IMAGEM DO RATO: Ajustada ao lado do texto */
+.imagem-rato {
+  height: 280px;              /* Altura proporcional ao H1 */
+  width: auto;
+  object-fit: contain;
+  
+  /* TRUQUE DA TRANSPARÊNCIA: Remove o fundo branco sem sumir com o rato cinza */
+  mix-blend-mode: screen; 
+}
+
+/* LADO DIREITO: Foto do Vitão perfeitamente ajustada */
+.lado-direito {
+  background-image: url('img/imagem vitão.jpeg'); 
+  background-size: contain;      /* MUDANÇA KEY: Garante que a foto inteira caiba nesse lado sem cortes */
+  background-position: center;   /* Centraliza a imagem no espaço disponível */
+  background-repeat: no-repeat;
+  background-color: #111;        /* Se a foto não preencher todo o lado, as bordas ficam pretas */
+}
+
+/* ANIMAÇÃO DO ARCO-ÍRIS */
+@keyframes moverArcoIris {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
